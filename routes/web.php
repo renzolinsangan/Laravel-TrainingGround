@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request; // used in syntax 3 to syntax 5
 
 // FOR THE MAIN PAGE
 Route::get('/', function () {
@@ -9,8 +9,25 @@ Route::get('/', function () {
 });
 
 Route::get('/jobs', function () {
-    return '<h1>Available Jobs</h1>';
+    $title = 'Available Jobs';
+    $jobs  = [
+        'Web Developer',
+        'Database Admin',
+        'Software Engineer',
+        'Systems Analyst'
+    ];
+
+    return view('jobs.index', compact('title', 'jobs'));
+
+    // return view('jobs.index')->with('title', 'Available Jobs'); // for more simpler passing of data
+    // return view('jobs.index', [
+    //     'title' => 'Available Jobs'
+    // ]); // for more complex, if want to pass multiple data
 })->name('jobs');
+
+Route::get('/jobs/create', function () {
+    return view('jobs.create');
+})->name('create');
 
 // =============================== SYNTAX 1 ========================================= //
 // FOR SIMPLE GET ROUTING
