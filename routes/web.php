@@ -12,8 +12,6 @@ Route::get('/jobs', function () {
     return '<h1>Available Jobs</h1>';
 })->name('jobs');
 
-
-
 // =============================== SYNTAX 1 ========================================= //
 // FOR SIMPLE GET ROUTING
 // Route::get('/jobs', function () {
@@ -75,6 +73,7 @@ Route::get('/jobs', function () {
 // })->whereAlpha('id'); // shortcut
 // })->where('id', '[a-zA-z]+'); // for longer syntax
 
+// PASSING OF MULTIPLE PARAMETERS
 // Route::get('/posts/{id}/comments/{commentId}', function (string $id, string $commentId) {
 //     return 'Post ' . $id . ' Comments ' . $commentId;
 // });
@@ -124,3 +123,42 @@ Route::get('/jobs', function () {
 //     return $request->except(['name']);
 // });
 // =============================== SYNTAX 3 ========================================= //
+
+// =============================== SYNTAX 4 ========================================= //
+// FOR RESPONSE HELPER
+// Route::get('/test', function () {
+//     return response('Hello World', 200);
+// });
+
+// FOR PAGE NOT FOUND OR ERROR IN THE WEBPAGE
+// Route::get('notfound', function () {
+//     return response('Page Not Found', 404); // the second parameter is for the status
+// });
+
+// FOR HEADER RESPONSE
+// Route::get('/test', function () {
+//     return response('<h1>Hello World</h1>', 200)->header('Content-Type', 'text/plain'); // for plain header
+//     // return response('<h1>Hello World</h1>', 200)->header('Content-Type', 'text/html'); // for html header
+// });
+
+// FOR RESPONSE JSON
+// Route::get('/test', function () {
+//     return response()->json(['name' => 'John Doe']);
+// });
+
+// FOR SETTING VALUE TO COOKIES
+// Route::get('/test', function () {
+//     return response()->json(['name' => 'John Doe'])->cookie('name', 'John Doe');
+// });
+
+// FOR DOWNLOADING FILES, ANY FILES
+// Route::get('/download', function () {
+//     return response()->download(public_path('favicon.ico'));
+// });
+
+// FOR CHECKING IF THERE IS COOKIE
+// Route::get('/read-cookie', function (Request $response) {
+//     $cookieValue = $response->cookie('name');
+//     return response()->json(['cookie' => $cookieValue]);
+// });
+// =============================== SYNTAX 4 ========================================= //
