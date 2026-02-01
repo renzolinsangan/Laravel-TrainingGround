@@ -1,33 +1,16 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\JobController;
+use App\Http\Controllers\HomeController;
 // use Illuminate\Http\Request; // used in syntax 3 to syntax 5
 
 // FOR THE MAIN PAGE
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/pages', [HomeController::class, 'index']);
 
-Route::get('/jobs', function () {
-    $title = 'Available Jobs';
-    $jobs  = [
-        'Web Developer',
-        'Database Admin',
-        'Software Engineer',
-        'Systems Analyst'
-    ];
-
-    return view('jobs.index', compact('title', 'jobs'));
-
-    // return view('jobs.index')->with('title', 'Available Jobs'); // for more simpler passing of data
-    // return view('jobs.index', [
-    //     'title' => 'Available Jobs'
-    // ]); // for more complex, if want to pass multiple data
-})->name('jobs');
-
-Route::get('/jobs/create', function () {
-    return view('jobs.create');
-})->name('create');
+// FOR THE JOB PAGE
+Route::get('/jobs', [JobController::class, 'index']);
+Route::get('/jobs/create', [JobController::class, 'create']);
 
 // =============================== SYNTAX 1 ========================================= //
 // FOR SIMPLE GET ROUTING
@@ -179,3 +162,22 @@ Route::get('/jobs/create', function () {
 //     return response()->json(['cookie' => $cookieValue]);
 // });
 // =============================== SYNTAX 4 ========================================= //
+
+// =============================== SYNTAX 5 ========================================= //
+// BEFORE CONTROLLER METHOD
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// Route::get('/jobs', function () {
+// return view('jobs.index')->with('title', 'Available Jobs'); // for more simpler passing of data
+// return view('jobs.index', [
+//     'title' => 'Available Jobs'
+// ]); // for more complex, if want to pass multiple data
+// })->name('jobs');
+
+// Route::get('/jobs/create', function () {
+//     return view('jobs.create');
+// })->name('create');
+// =============================== SYNTAX 5 ========================================= //
