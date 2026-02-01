@@ -6,11 +6,13 @@ use App\Http\Controllers\HomeController;
 // use Illuminate\Http\Request; // used in syntax 3 to syntax 5
 
 // FOR THE MAIN PAGE
-Route::get('/pages', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index']);
 
 // FOR THE JOB PAGE
 Route::get('/jobs', [JobController::class, 'index']);
 Route::get('/jobs/create', [JobController::class, 'create']);
+Route::get('/jobs/{id}', [JobController::class, 'show']); // this should be below the /jobs/create and for future references
+Route::post('/jobs', [JobController::class, 'store']); // for post, it is okay to have same directory as long as different params
 
 // =============================== SYNTAX 1 ========================================= //
 // FOR SIMPLE GET ROUTING
