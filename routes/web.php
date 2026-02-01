@@ -12,7 +12,7 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/jobs', [JobController::class, 'index']);
 Route::get('/jobs/create', [JobController::class, 'create']);
 Route::get('/jobs/{id}', [JobController::class, 'show']); // this should be below the /jobs/create and for future references
-Route::post('/jobs', [JobController::class, 'store']); // for post, it is okay to have same directory as long as different params
+Route::post('/jobs', [JobController::class, 'store']); // for post, it is okay to have same directory as long as different methods
 
 // =============================== SYNTAX 1 ========================================= //
 // FOR SIMPLE GET ROUTING
