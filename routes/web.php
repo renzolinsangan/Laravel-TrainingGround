@@ -8,11 +8,9 @@ use App\Http\Controllers\HomeController;
 // FOR THE MAIN PAGE
 Route::get('/', [HomeController::class, 'index']);
 
-// FOR THE JOB PAGE
-Route::get('/jobs', [JobController::class, 'index']);
-Route::get('/jobs/create', [JobController::class, 'create']);
-Route::get('/jobs/{id}', [JobController::class, 'show']); // this should be below the /jobs/create and for future references
-Route::post('/jobs', [JobController::class, 'store']); // for post, it is okay to have same directory as long as different methods
+// FOR JOB PAGE
+// Route::get('/jobs/share', [JobController::class, 'share']); // this is if the class is not included in the resource and it should be above the resource so that it will work
+Route::resource('jobs', JobController::class);
 
 // =============================== SYNTAX 1 ========================================= //
 // FOR SIMPLE GET ROUTING
@@ -183,3 +181,11 @@ Route::post('/jobs', [JobController::class, 'store']); // for post, it is okay t
 //     return view('jobs.create');
 // })->name('create');
 // =============================== SYNTAX 5 ========================================= //
+
+// =============================== SYNTAX 6 ========================================= //
+// FOR THE JOB PAGE
+// Route::get('/jobs', [JobController::class, 'index']);
+// Route::get('/jobs/create', [JobController::class, 'create']);
+// Route::get('/jobs/{id}', [JobController::class, 'show']); // this should be below the /jobs/create and for future references
+// Route::post('/jobs', [JobController::class, 'store']); // for post, it is okay to have same directory as long as different methods
+// =============================== SYNTAX 6 ========================================= //
