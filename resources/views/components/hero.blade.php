@@ -11,13 +11,13 @@
                 type="text"
                 name="keywords"
                 placeholder="Keywords"
-                class="w-full md:w-72 px-4 py-3 focus:outline-none"
+                class="w-full md:w-72 px-4 py-3 focus:outline-none bg-white"
             />
             <input
                 type="text"
                 name="location"
                 placeholder="Location"
-                class="w-full md:w-72 px-4 py-3 focus:outline-none"
+                class="w-full md:w-72 px-4 py-3 focus:outline-none bg-white"
             />
             <button
                 class="w-full md:w-auto bg-blue-700 hover:bg-blue-600 text-white px-4 py-3 focus:outline-none"
