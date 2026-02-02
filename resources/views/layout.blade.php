@@ -13,5 +13,7 @@
     <main class="container mx-auto p-4 mt-4">
         {{$slot}}
     </main>
+    {{-- asset goes directly to the public folder --}}
+    <script src="{{asset('/js/script.js')}}"></script>
 </body>
 </html>
